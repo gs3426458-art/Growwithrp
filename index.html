@@ -19,6 +19,698 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css" />
+
+<style id="growwithrp-responsive">
+/* =========================================================
+   GrowWithRP — Mobile / Responsive Enhancement Layer
+   Keeps the existing desktop design, but makes every section
+   fluid, readable and touch-friendly on phones/tablets.
+   ========================================================= */
+
+html { scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  min-width: 0;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: min(1200px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+/* Header */
+.navbar {
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-container {
+  min-width: 0;
+  gap: 18px;
+}
+
+.logo {
+  flex: 0 0 auto;
+  max-width: 190px;
+}
+
+.logo-img {
+  display: block;
+  width: auto;
+  max-width: 170px;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  min-width: 0;
+}
+
+.nav-link {
+  white-space: nowrap;
+}
+
+.nav-cta {
+  white-space: nowrap;
+}
+
+/* Prevent accidental horizontal overflow from decorative elements */
+.hero,
+.section,
+.cta-section,
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero */
+.hero-container {
+  min-width: 0;
+}
+
+.hero-content,
+.hero-visual {
+  min-width: 0;
+}
+
+.hero-title,
+.section-title,
+.cta-title {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.hero-subtitle,
+.section-desc,
+.feature-desc,
+.service-desc,
+.step-desc,
+.testimonial-quote,
+.faq-answer,
+.footer-desc {
+  overflow-wrap: anywhere;
+}
+
+/* Dashboard should shrink instead of forcing page width */
+.dashboard-card {
+  width: min(100%, 620px);
+  max-width: 100%;
+}
+
+.dash-chart {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.float-el {
+  max-width: calc(100% - 20px);
+}
+
+/* Buttons */
+.btn {
+  min-height: 46px;
+  touch-action: manipulation;
+}
+
+.hero-ctas,
+.cta-buttons {
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+@media (max-width: 1024px) {
+  .container {
+    width: min(100% - 32px, 900px);
+  }
+
+  .nav-container {
+    min-height: 72px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-cta {
+    padding-inline: 16px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin-inline: auto;
+    max-width: 800px;
+  }
+
+  .hero-badge,
+  .hero-ctas,
+  .hero-trust {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    width: min(100%, 760px);
+    margin: 18px auto 0;
+  }
+
+  .features-grid,
+  .services-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  /* Header / mobile menu */
+  .navbar {
+    position: relative;
+  }
+
+  .nav-container {
+    min-height: 66px;
+    padding-block: 10px;
+    gap: 10px;
+  }
+
+  .logo {
+    max-width: 150px;
+  }
+
+  .logo-img {
+    max-width: 145px;
+  }
+
+  .nav-links,
+  .nav-cta {
+    display: none !important;
+  }
+
+  .menu-icon {
+    display: flex !important;
+    margin-left: auto;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    flex: 0 0 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .menu-bar {
+    display: block;
+    width: 23px;
+    height: 2px;
+    border-radius: 99px;
+    transition: transform .25s ease, opacity .2s ease;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: calc(100vh - 66px);
+    overflow-y: auto;
+    padding: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+    z-index: 9999;
+  }
+
+  #menu-toggle:checked ~ .navbar .menu-icon .menu-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  #menu-toggle:checked ~ .navbar .menu-icon .menu-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked ~ .navbar .menu-icon .menu-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  #menu-toggle:checked ~ .mobile-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mobile-nav-links li,
+  .mobile-nav-link {
+    width: 100%;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+
+  .mobile-cta {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 45px;
+    padding-bottom: 55px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .hero-badge {
+    max-width: 100%;
+    padding: 8px 12px;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .hero-ctas {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-trust {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+    width: 100%;
+  }
+
+  .trust-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-visual {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .dashboard-card {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .dash-header {
+    padding: 10px 12px;
+  }
+
+  .dash-label {
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dash-body {
+    padding: 14px;
+  }
+
+  .dash-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .dash-stat-item {
+    min-width: 0;
+  }
+
+  .dash-stat-label {
+    font-size: 9px;
+  }
+
+  .dash-stat-value {
+    font-size: 15px;
+  }
+
+  .dash-chart {
+    height: 150px;
+    gap: 5px;
+  }
+
+  .chart-bar span {
+    font-size: 7px;
+  }
+
+  .dash-insight {
+    font-size: 10px;
+  }
+
+  .float-el {
+    display: none;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* Sections */
+  .section {
+    padding-block: 58px;
+  }
+
+  .section-header {
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: clamp(1.65rem, 7vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .features-grid,
+  .services-grid,
+  .testimonials-grid,
+  .stats-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Cards */
+  .feature-card,
+  .service-card,
+  .testimonial-card,
+  .stat-card,
+  .step-content {
+    min-width: 0;
+  }
+
+  .feature-card,
+  .testimonial-card {
+    padding: 22px;
+  }
+
+  .service-card-inner {
+    padding: 24px;
+  }
+
+  .service-title {
+    font-size: 20px;
+  }
+
+  .service-desc,
+  .feature-desc,
+  .testimonial-quote,
+  .step-desc {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* Process */
+  .process-timeline {
+    width: 100%;
+  }
+
+  .process-step {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .step-marker {
+    width: 42px;
+  }
+
+  .step-content {
+    padding: 20px;
+  }
+
+  .step-line {
+    height: calc(100% - 42px);
+  }
+
+  /* Stats */
+  .stats-grid {
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 22px 16px;
+  }
+
+  /* Testimonials */
+  .author-info {
+    min-width: 0;
+  }
+
+  .author-name,
+  .author-role {
+    overflow-wrap: anywhere;
+  }
+
+  /* FAQ */
+  .faq-question {
+    min-height: 58px;
+    padding: 15px 16px;
+    gap: 12px;
+  }
+
+  .faq-question span {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .faq-answer p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta-banner {
+    padding: 36px 20px;
+    border-radius: 20px;
+  }
+
+  .cta-title {
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
+    line-height: 1.15;
+  }
+
+  .cta-desc {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer */
+  .footer {
+    padding-top: 52px;
+  }
+
+  .footer-grid {
+    gap: 30px;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-logo .logo-img {
+    max-width: 155px;
+  }
+
+  .footer-desc {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 16px;
+  }
+
+  .footer-contact a,
+  .footer-contact span {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+@media (max-width: 420px) {
+  .container {
+    width: calc(100% - 22px);
+  }
+
+  .nav-container {
+    min-height: 62px;
+  }
+
+  .logo,
+  .logo-img {
+    max-width: 132px;
+  }
+
+  .hero-container {
+    padding-top: 34px;
+    padding-bottom: 45px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+  }
+
+  .section {
+    padding-block: 48px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .dash-body {
+    padding: 11px;
+  }
+
+  .dash-chart {
+    height: 125px;
+  }
+
+  .dash-stat-label {
+    font-size: 8px;
+  }
+
+  .dash-stat-value {
+    font-size: 13px;
+  }
+
+  .service-card-inner,
+  .feature-card,
+  .testimonial-card,
+  .step-content {
+    padding: 18px;
+  }
+
+  .cta-banner {
+    padding: 30px 16px;
+  }
+}
+
+/* Accessibility / touch */
+a, button, label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -737,9 +1429,8 @@
       <div class="footer-grid">
         <!-- Brand Column -->
         <div class="footer-brand">
-          <a href="#home" class="logo footer-logo">
-            <span class="logo-icon"><i class="fa-solid fa-chart-line"></i></span>
-            <span class="logo-text">GrowWith<span class="logo-highlight">RP</span></span>
+          <a href="#home" class="logo footer-logo" aria-label="GrowWithRP Home">
+            <img src="assets/logo.png" alt="GrowWithRP Logo" class="logo-img">
           </a>
           <p class="footer-desc">
             GrowWithRP is a data-driven digital marketing agency dedicated to helping businesses dominate their markets through strategic SEO, social media marketing, and high-converting ad campaigns.
@@ -808,6 +1499,27 @@
       </div>
     </div>
   </footer>
+
+
+<script>
+(function () {
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-cta');
+
+  mobileLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (menuToggle) menuToggle.checked = false;
+    });
+  });
+
+  // Close menu with Escape for keyboard users.
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && menuToggle) {
+      menuToggle.checked = false;
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
