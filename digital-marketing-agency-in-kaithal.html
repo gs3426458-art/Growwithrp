@@ -420,9 +420,60 @@ button:focus-visible,
   font-weight: 700;
 }
 </style>
+<style>
+.blog-page {
+  position: relative;
+  overflow-x: hidden;
+  background: #050816;
+}
 
+.blog-page::before {
+  content: "";
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  right: -120px;
+  top: 120px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%,
+      rgba(255,255,255,0.95) 0%,
+      rgba(180,220,255,0.55) 8%,
+      rgba(70,140,255,0.30) 25%,
+      rgba(20,50,120,0.18) 48%,
+      rgba(0,0,0,0) 70%);
+  filter: blur(1px);
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blog-page::after {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  left: -300px;
+  bottom: -250px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(37,99,235,0.18) 0%,
+    rgba(37,99,235,0.08) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blog-page > * {
+  position: relative;
+  z-index: 1;
+}
+</style>
+  
 </head>
-<body>
+<body class="blog-page">
 <header class="header" id="home">
     <!-- Hidden checkbox for CSS-only mobile menu toggle -->
     <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
