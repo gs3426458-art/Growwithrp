@@ -1,855 +1,630 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Digital marketing agency in Panchkula offering SEO, local SEO, social media marketing and online growth services.">
-
-    <meta name="keywords"
-        content="digital marketing agency in Panchkula, SEO services in Panchkula, SEO company in Panchkula, digital marketing services Panchkula">
-
-    <title>
-        Digital Marketing Agency in Panchkula | GrowWithRP
-    </title>
-
-    <link
-        rel="canonical"
-        href="https://www.growwithrp.tech/digital-marketing-agency-in-panchkula.html">
-
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Your Main CSS -->
-    <link rel="stylesheet" href="style.css">
-
-
-    <style>
-
-        /* ==============================
-           BASIC RESPONSIVE SETTINGS
-        ============================== */
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            -webkit-text-size-adjust: 100%;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            overflow-x: hidden;
-        }
-
-
-        /* ==============================
-           CONTAINER
-        ============================== */
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-
-        /* ==============================
-           HEADER
-           NOT STICKY
-        ============================== */
-
-        .header {
-            position: relative;
-            top: auto;
-            z-index: 1000;
-        }
-
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 18px;
-            padding: 14px 20px;
-        }
-
-
-        /* ==============================
-           LOGO
-        ============================== */
-
-        .logo-img {
-            display: block;
-            max-width: 150px;
-            max-height: 42px;
-            width: auto;
-        }
-
-
-        /* ==============================
-           DESKTOP NAVIGATION
-        ============================== */
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-
-        .nav-cta {
-            white-space: nowrap;
-        }
-
-
-        /* ==============================
-           MOBILE MENU
-        ============================== */
-
-        .menu-checkbox {
-            display: none;
-        }
-
-
-        .menu-icon {
-            display: none;
-        }
-
-
-        .mobile-menu {
-            display: none;
-        }
-
-
-        /* ==============================
-           BLOG
-        ============================== */
-
-        .blog-details {
-            padding: 32px 0 50px;
-        }
-
-
-        .blog-content {
-            max-width: 780px;
-            margin: auto;
-        }
-
-
-        .blog-content h1 {
-            font-size: clamp(1.7rem, 5vw, 2.6rem);
-            line-height: 1.25;
-        }
-
-
-        .blog-content h2 {
-            font-size: clamp(1.3rem, 4vw, 1.8rem);
-            margin-top: 34px;
-        }
-
-
-        .blog-content h3 {
-            font-size: clamp(1.05rem, 3.2vw, 1.3rem);
-            margin-top: 24px;
-        }
-
-
-        .blog-content p,
-        .blog-content li {
-            line-height: 1.75;
-        }
-
-
-        .blog-content li {
-            margin-bottom: 6px;
-        }
-
-
-        /* ==============================
-           TABLET / MOBILE
-        ============================== */
-
-        @media (max-width: 900px) {
-
-            .nav-links,
-            .nav-cta {
-                display: none;
-            }
-
-
-            .menu-icon {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-                width: 32px;
-                height: 32px;
-                justify-content: center;
-                cursor: pointer;
-            }
-
-
-            .menu-bar {
-                height: 2px;
-                width: 100%;
-                background: currentColor;
-                transition: 0.25s;
-            }
-
-
-            .mobile-menu {
-                display: block;
-                max-height: 0;
-                opacity: 0;
-                overflow: hidden;
-                transition: 0.3s;
-            }
-
-
-            .mobile-nav-links {
-                list-style: none;
-                padding: 16px 20px 8px;
-                margin: 0;
-            }
-
-
-            .mobile-nav-link {
-                display: block;
-                padding: 12px 4px;
-            }
-
-
-            .mobile-cta {
-                display: flex;
-                width: calc(100% - 40px);
-                margin: 8px 20px 20px;
-                justify-content: center;
-            }
-
-
-            /* Hamburger animation */
-
-            #menu-toggle:checked
-            ~ .navbar
-            .menu-icon
-            .menu-bar:nth-child(1) {
-                transform: translateY(7px) rotate(45deg);
-            }
-
-
-            #menu-toggle:checked
-            ~ .navbar
-            .menu-icon
-            .menu-bar:nth-child(2) {
-                opacity: 0;
-            }
-
-
-            #menu-toggle:checked
-            ~ .navbar
-            .menu-icon
-            .menu-bar:nth-child(3) {
-                transform: translateY(-7px) rotate(-45deg);
-            }
-
-
-            #menu-toggle:checked
-            ~ .mobile-menu {
-                max-height: 500px;
-                opacity: 1;
-            }
-
-        }
-
-
-        /* ==============================
-           SMALL MOBILE
-        ============================== */
-
-        @media (max-width: 600px) {
-
-            .container {
-                padding: 0 14px;
-            }
-
-
-            .blog-details {
-                padding-top: 24px;
-            }
-
-        }
-/* =========================================================
-   GROWWITHRP FLOATING BALL BACKGROUND
-   Same background effect as homepage
-========================================================= */
-
-
-/* Main particle container */
-
-.particles {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-
-    pointer-events: none;
-
-    z-index: -2;
-
-}
-
-
-/* Background gradient */
-
-.bg-overlay {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    pointer-events: none;
-
-    z-index: -3;
-
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(0, 123, 255, 0.12),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 85% 75%,
-            rgba(255, 193, 7, 0.08),
-            transparent 35%
-        );
-
-}
-
-
-/* Individual ball */
-
-.particle {
-
-    position: absolute;
-
-    display: block;
-
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.45);
-
-    box-shadow:
-        0 0 10px rgba(255, 255, 255, 0.25);
-
-    opacity: 0.6;
-
-    animation:
-        floatBall
-        12s
-        ease-in-out
-        infinite;
-
-}
-
-
-/* Different ball sizes */
-
-.p1,
-.p5,
-.p9,
-.p14,
-.p18 {
-
-    width: 4px;
-    height: 4px;
-
-}
-
-
-.p3,
-.p7,
-.p12,
-.p16,
-.p20 {
-
-    width: 10px;
-    height: 10px;
-
-}
-
-
-/* Ball positions */
-
-.p1 {
-    left: 5%;
-    top: 20%;
-    animation-duration: 11s;
-}
-
-
-.p2 {
-    left: 12%;
-    top: 65%;
-    animation-duration: 15s;
-}
-
-
-.p3 {
-    left: 20%;
-    top: 35%;
-    animation-duration: 13s;
-}
-
-
-.p4 {
-    left: 28%;
-    top: 80%;
-    animation-duration: 17s;
-}
-
-
-.p5 {
-    left: 35%;
-    top: 15%;
-    animation-duration: 12s;
-}
-
-
-.p6 {
-    left: 42%;
-    top: 55%;
-    animation-duration: 16s;
-}
-
-
-.p7 {
-    left: 50%;
-    top: 25%;
-    animation-duration: 14s;
-}
-
-
-.p8 {
-    left: 58%;
-    top: 75%;
-    animation-duration: 18s;
-}
-
-
-.p9 {
-    left: 65%;
-    top: 40%;
-    animation-duration: 12s;
-}
-
-
-.p10 {
-    left: 72%;
-    top: 15%;
-    animation-duration: 16s;
-}
-
-
-.p11 {
-    left: 80%;
-    top: 60%;
-    animation-duration: 14s;
-}
-
-
-.p12 {
-    left: 88%;
-    top: 30%;
-    animation-duration: 19s;
-}
-
-
-.p13 {
-    left: 94%;
-    top: 78%;
-    animation-duration: 13s;
-}
-
-
-.p14 {
-    left: 8%;
-    top: 90%;
-    animation-duration: 17s;
-}
-
-
-.p15 {
-    left: 25%;
-    top: 50%;
-    animation-duration: 15s;
-}
-
-
-.p16 {
-    left: 45%;
-    top: 90%;
-    animation-duration: 20s;
-}
-
-
-.p17 {
-    left: 62%;
-    top: 10%;
-    animation-duration: 14s;
-}
-
-
-.p18 {
-    left: 76%;
-    top: 88%;
-    animation-duration: 18s;
-}
-
-
-.p19 {
-    left: 86%;
-    top: 48%;
-    animation-duration: 16s;
-}
-
-
-.p20 {
-    left: 97%;
-    top: 18%;
-    animation-duration: 21s;
-}
-
-
-/* Floating animation */
-
-@keyframes floatBall {
-
-    0% {
-
-        transform:
-            translate3d(0, 0, 0)
-            scale(1);
-
-        opacity: 0.25;
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Digital Marketing Agency in Panchkula offering SEO & Digital Marketing Services by Grow Wit hRP to boost visibility, leads, and business growth.
+">
+
+  <meta name="keywords"
+        content="SEO company in Panchkula, SEO services in Panchkula, best SEO company in Panchkula, SEO agency in Panchkula, local SEO services in Panchkula, digital marketing agency in Panchkula, SEO expert in Panchkula">
+
+  <meta name="author" content="Grow with RP">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <title>Digital Marketing Agency in Panchkula | Grow with RP</title>
+
+  <link rel="canonical"
+        href="https://www.growwithrp.tech/seo-company-in-kaithal.html">
+
+  <!-- Favicon -->
+  <link rel="icon"
+        type="image/png"
+        href="assets/logo.png">
+
+  <link rel="apple-touch-icon"
+        href="assets/logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title"
+        content="Digital Marketing Agency in Panchkula | Grow with RP">
+  <meta property="og:description"
+        content="Digital Marketing Agency in Panchkula offering SEO & Digital Marketing Services by Grow with RP to boost visibility, leads, and business growth.
+">
+  <meta property="og:url"
+        content="https://www.growwithrp.tech/digital-marketing-agency-in-panchkula.html">
+  <meta property="og:image"
+        content="https://www.growwithrp.tech/assets/og-image.jpg">
+  <meta property="og:site_name"
+        content="GrowWithRP">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card"
+        content="summary_large_image">
+  <meta name="twitter:title"
+        content="Digital Marketing Agency in Panchkula | Grow with RP">
+  <meta name="twitter:description"
+        content="Digital Marketing Agency in Panchkula offering SEO & Digital Marketing Services by Grow with RP to boost visibility, leads, and business growth.">
+  <meta name="twitter:image"
+        content="https://www.growwithrp.tech/assets/og-image.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Blog Responsive CSS -->
+  <style>
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
     }
 
-
-    25% {
-
-        transform:
-            translate3d(35px, -45px, 0)
-            scale(1.15);
-
-        opacity: 0.65;
-
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
-
-    50% {
-
-        transform:
-            translate3d(-25px, -80px, 0)
-            scale(0.9);
-
-        opacity: 0.35;
-
+    body {
+      overflow-x: hidden;
     }
 
-
-    75% {
-
-        transform:
-            translate3d(45px, -35px, 0)
-            scale(1.1);
-
-        opacity: 0.7;
-
+    img,
+    svg,
+    video {
+      max-width: 100%;
+      height: auto;
     }
 
-
-    100% {
-
-        transform:
-            translate3d(0, 0, 0)
-            scale(1);
-
-        opacity: 0.25;
-
+    .container {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-}
+    /* ================= HEADER ================= */
 
+    .header {
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      width: 100%;
+      z-index: 1000;
+    }
 
-/* Keep content above background */
+    .navbar {
+      width: 100%;
+    }
 
-.header,
-main,
-.footer {
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 20px;
+      min-height: 78px;
+    }
 
-    position: relative;
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
 
-    z-index: 1;
+    .logo-img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 165px;
+      max-height: 58px;
+      object-fit: contain;
+    }
 
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+    }
 
+    .nav-cta {
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
 
-/* Mobile */
+    .menu-checkbox {
+      display: none;
+    }
 
-@media (max-width: 767px) {
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      flex: 0 0 44px;
+    }
 
-    .particles {
+    .menu-bar {
+      display: block;
+      width: 23px;
+      height: 2px;
+      border-radius: 99px;
+      background: currentColor;
+      transition: transform .25s ease, opacity .2s ease;
+    }
 
+    .mobile-menu {
+      display: none;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 16px 20px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 4px;
+    }
+
+    .mobile-cta {
+      display: flex;
+      width: calc(100% - 40px);
+      margin: 8px 20px 20px;
+      justify-content: center;
+    }
+
+    /* ================= BLOG ================= */
+
+    .blog-details {
+      padding-top: 50px;
+      padding-bottom: 60px;
+    }
+
+    .blog-content {
+      width: min(780px, 100%);
+      margin: 0 auto;
+    }
+
+    .blog-content h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 25px;
+    }
+
+    .blog-content h2 {
+      font-size: clamp(1.45rem, 4vw, 2rem);
+      line-height: 1.3;
+      margin-top: 42px;
+      margin-bottom: 15px;
+    }
+
+    .blog-content h3 {
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      line-height: 1.4;
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    .blog-content p,
+    .blog-content li {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .blog-content p {
+      margin-bottom: 18px;
+    }
+
+    .blog-content ul {
+      padding-left: 22px;
+      margin-bottom: 20px;
+    }
+
+    .blog-content li {
+      margin-bottom: 8px;
+    }
+
+    .blog-content .internal-link {
+      color: #60a5fa;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 32px;
+    }
+
+    .footer-brand {
+      min-width: 0;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .footer-logo .logo-img {
+      max-width: 165px;
+      max-height: 58px;
+    }
+
+    .footer-desc {
+      line-height: 1.7;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links,
+    .footer-contact {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      word-break: break-word;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ================= TABLET ================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links,
+      .nav-cta {
+        display: none !important;
+      }
+
+      .menu-icon {
+        display: flex;
+        margin-left: auto;
+      }
+
+      .mobile-menu {
         display: block;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height .35s ease, opacity .25s ease;
+      }
 
-        opacity: 0.55;
+      #menu-toggle:checked ~ .navbar .menu-icon .menu-bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
 
+      #menu-toggle:checked ~ .navbar .menu-icon .menu-bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      #menu-toggle:checked ~ .navbar .menu-icon .menu-bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      #menu-toggle:checked ~ .mobile-menu {
+        max-height: 500px;
+        opacity: 1;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 24px;
+      }
     }
 
-    .particle {
+    /* ================= MOBILE ================= */
 
-        width: 4px;
-        height: 4px;
+    @media (max-width: 600px) {
 
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .nav-container {
+        min-height: 66px;
+        gap: 10px;
+      }
+
+      .logo-img {
+        max-width: 145px;
+        max-height: 48px;
+      }
+
+      .blog-details {
+        padding-top: 30px;
+        padding-bottom: 40px;
+      }
+
+      .blog-content {
+        padding: 0 2px;
+      }
+
+      .blog-content h1 {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+      }
+
+      .blog-content h2 {
+        margin-top: 32px;
+      }
+
+      .blog-content p,
+      .blog-content li {
+        font-size: .94rem;
+        line-height: 1.75;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
-}
-        
-    </style>
+    @media (max-width: 420px) {
+
+      .container {
+        width: calc(100% - 22px);
+      }
+
+      .logo-img {
+        max-width: 132px;
+      }
+
+      .blog-content h1 {
+        font-size: 1.9rem;
+      }
+    }
+
+  </style>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Grow with RP",
+    "url": "https://www.growwithrp.tech/",
+    "logo": "https://www.growwithrp.tech/assets/logo.png"
+  }
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Digital Marketing Agency in Panchkula",
+    "description": "Digital Marketing Agency in Panchkula offering SEO & Digital Marketing Services by Grow with RP to boost visibility, leads, and business growth.",
+    "author": {
+      "@type": "Organization",
+      "name": "GrowWithRP"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Grow with RP",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.growwithrp.tech/assets/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.growwithrp.tech/digital-marketing-agency-in-panchkula.html"
+    }
+  }
+  </script>
 
 </head>
+
 <body>
-<!-- BACKGROUND PARTICLES -->
-<div class="particles" aria-hidden="true">
 
-    <span class="particle p1"></span>
-    <span class="particle p2"></span>
-    <span class="particle p3"></span>
-    <span class="particle p4"></span>
-    <span class="particle p5"></span>
-    <span class="particle p6"></span>
-    <span class="particle p7"></span>
-    <span class="particle p8"></span>
-    <span class="particle p9"></span>
-    <span class="particle p10"></span>
-    <span class="particle p11"></span>
-    <span class="particle p12"></span>
-    <span class="particle p13"></span>
-    <span class="particle p14"></span>
-    <span class="particle p15"></span>
-    <span class="particle p16"></span>
-    <span class="particle p17"></span>
-    <span class="particle p18"></span>
-    <span class="particle p19"></span>
-    <span class="particle p20"></span>
+<!-- ================= HEADER ================= -->
 
-</div>
+<header class="header" id="home">
 
-<div class="bg-overlay" aria-hidden="true"></div>
-    <!-- ==============================
-         HEADER
-    ============================== -->
+  <input type="checkbox"
+         id="menu-toggle"
+         class="menu-checkbox">
 
-    <header class="header" id="home">
+  <nav class="navbar">
 
-        <!-- Mobile Menu Checkbox -->
-        <input
-            type="checkbox"
-            id="menu-toggle"
-            class="menu-checkbox">
+    <div class="container nav-container">
 
+      <!-- LOGO -->
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png"
+             alt="GrowWithRP Logo"
+             class="logo-img">
+      </a>
 
-        <!-- NAVBAR -->
-        <nav class="navbar">
+      <!-- DESKTOP NAVIGATION -->
+      <ul class="nav-links">
 
-            <div class="container nav-container">
+        <li>
+          <a href="index.html"
+             class="nav-link">
+            Home
+          </a>
+        </li>
 
+        <li>
+          <a href="index.html#about"
+             class="nav-link">
+            About
+          </a>
+        </li>
 
-                <!-- LOGO -->
+        <li>
+          <a href="index.html#services"
+             class="nav-link">
+            Services
+          </a>
+        </li>
 
-                <a href="index.html" class="logo">
+        <li>
+          <a href="index.html#process"
+             class="nav-link">
+            Process
+          </a>
+        </li>
 
-                    <img
-                        src="assets/logo.png"
-                        alt="GrowWithRP Logo"
-                        class="logo-img">
+        <li>
+          <a href="index.html#contact"
+             class="nav-link">
+            Contact
+          </a>
+        </li>
 
-                </a>
+      </ul>
 
+      <!-- CTA -->
+      <a href="index.html#contact"
+         class="btn btn-primary nav-cta">
 
-                <!-- DESKTOP NAVIGATION -->
+        <span>Book Free Consultation</span>
 
-                <ul class="nav-links">
+        <i class="fa-solid fa-arrow-right"></i>
 
-                    <li>
-                        <a
-                            href="index.html"
-                            class="nav-link active">
-                            Home
-                        </a>
-                    </li>
+      </a>
 
+      <!-- MOBILE MENU -->
+      <label for="menu-toggle"
+             class="menu-icon"
+             aria-label="Toggle navigation menu">
 
-                    <li>
-                        <a
-                            href="index.html#about"
-                            class="nav-link">
-                            About
-                        </a>
-                    </li>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
 
+      </label>
 
-                    <li>
-                        <a
-                            href="index.html#services"
-                            class="nav-link">
-                            Services
-                        </a>
-                    </li>
+    </div>
 
+  </nav>
 
-                    <li>
-                        <a
-                            href="index.html#process"
-                            class="nav-link">
-                            Process
-                        </a>
-                    </li>
+  <!-- MOBILE NAVIGATION -->
+  <div class="mobile-menu">
 
+    <ul class="mobile-nav-links">
 
-                    <li>
-                        <a
-                            href="index.html#contact"
-                            class="nav-link">
-                            Contact
-                        </a>
-                    </li>
+      <li>
+        <a href="index.html"
+           class="mobile-nav-link">
+          Home
+        </a>
+      </li>
 
-                </ul>
+      <li>
+        <a href="index.html#about"
+           class="mobile-nav-link">
+          About
+        </a>
+      </li>
 
+      <li>
+        <a href="index.html#services"
+           class="mobile-nav-link">
+          Services
+        </a>
+      </li>
 
-                <!-- DESKTOP CTA -->
+      <li>
+        <a href="index.html#process"
+           class="mobile-nav-link">
+          Process
+        </a>
+      </li>
 
-                <a
-                    href="index.html#contact"
-                    class="btn btn-primary nav-cta">
+      <li>
+        <a href="index.html#contact"
+           class="mobile-nav-link">
+          Contact
+        </a>
+      </li>
 
-                    <span>
-                        Book Free Consultation
-                    </span>
+    </ul>
 
-                    <i class="fa-solid fa-arrow-right"></i>
+    <a href="index.html#contact"
+       class="btn btn-primary mobile-cta">
 
-                </a>
+      <span>Book Free Consultation</span>
 
+      <i class="fa-solid fa-arrow-right"></i>
 
-                <!-- MOBILE HAMBURGER -->
+    </a>
 
-                <label
-                    for="menu-toggle"
-                    class="menu-icon">
+  </div>
 
-                    <span class="menu-bar"></span>
-                    <span class="menu-bar"></span>
-                    <span class="menu-bar"></span>
+</header>
 
-                </label>
-
-            </div>
-
-        </nav>
-
-
-        <!-- MOBILE MENU -->
-
-        <div class="mobile-menu">
-
-            <ul class="mobile-nav-links">
-
-                <li>
-                    <a
-                        href="index.html"
-                        class="mobile-nav-link">
-                        Home
-                    </a>
-                </li>
-
-
-                <li>
-                    <a
-                        href="index.html#about"
-                        class="mobile-nav-link">
-                        About
-                    </a>
-                </li>
-
-
-                <li>
-                    <a
-                        href="index.html#services"
-                        class="mobile-nav-link">
-                        Services
-                    </a>
-                </li>
-
-
-                <li>
-                    <a
-                        href="index.html#process"
-                        class="mobile-nav-link">
-                        Process
-                    </a>
-                </li>
-
-
-                <li>
-                    <a
-                        href="index.html#contact"
-                        class="mobile-nav-link">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-
-            <a
-                href="index.html#contact"
-                class="btn btn-primary mobile-cta">
-
-                <span>
-                    Book Free Consultation
-                </span>
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-    </header>
         <!-- ==============================
          BLOG CONTENT
     ============================== -->
