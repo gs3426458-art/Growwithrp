@@ -744,6 +744,59 @@ a, button, label {
     scroll-behavior: auto !important;
   }
 }
+  .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,175,55,0.4); /* apne gold accent se match karlo */
+  background: rgba(255,255,255,0.05);
+}
+
+.blog-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  margin-bottom: 12px;
+}
+
+.blog-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.blog-card p {
+  font-size: 0.92rem;
+  opacity: 0.7;
+  line-height: 1.5;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+.blog-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gradient-color, #d4af37); /* apna gradient/gold color variable use karo */
+}
+  
 </style>
 
 
@@ -1306,6 +1359,72 @@ a, button, label {
     </div>
   </section>
 
+ <!-- ============================================================ -->
+<!-- BLOG SECTION                                                  -->
+<!-- ============================================================ -->
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Our Blog</span>
+      <h2 class="section-title">Insights That Help You <span class="gradient-text">Rank & Grow</span></h2>
+      <p class="section-desc">
+        Practical SEO and digital marketing guidance for local businesses in Panchkula, Kaithal, and across Haryana.
+      </p>
+    </div>
+
+    <div class="blog-grid">
+      <a href="/seo-services-in-panchkula.html" class="blog-card">
+        <span class="blog-tag">SEO</span>
+        <h3>SEO Services in Panchkula</h3>
+        <p>What actually drives Google rankings in 2026 for local Panchkula businesses.</p>
+        <span class="blog-link">Read More &rarr;</span>
+      </a>
+
+      <a href="/digital-marketing-agency-in-panchkula.html" class="blog-card">
+        <span class="blog-tag">Digital Marketing</span>
+        <h3>Digital Marketing Agency in Panchkula</h3>
+        <p>Why Tricity businesses need a full-funnel digital marketing partner.</p>
+        <span class="blog-link">Read More &rarr;</span>
+      </a>
+
+      <a href="/digital-marketing-services-in-haryana.html" class="blog-card">
+        <span class="blog-tag">Digital Marketing</span>
+        <h3>Digital Marketing Services in Haryana</h3>
+        <p>A state-wide look at what growing Haryana businesses need online.</p>
+        <span class="blog-link">Read More &rarr;</span>
+      </a>
+
+      <a href="/seo-company-in-panchkula" class="blog-card">
+        <span class="blog-tag">SEO</span>
+        <h3>SEO Company in Panchkula</h3>
+        <p>How to choose the right SEO partner for your Panchkula business.</p>
+        <span class="blog-link">Read More &rarr;</span>
+      </a>
+
+      <a href="/digital-marketing-agency-in-kaithal.html" class="blog-card">
+        <span class="blog-tag">Digital Marketing</span>
+        <h3>Digital Marketing Agency in Kaithal</h3>
+        <p>Full-service digital growth strategy built for Kaithal businesses.</p>
+        <span class="blog-link">Read More &rarr;</span>
+      </a>
+
+      <a href="/seo-company-in-kaithal.html" class="blog-card">
+        <span class="blog-tag">SEO</span>
+        <h3>SEO Company in Kaithal</h3>
+        <p>Everything a Kaithal business owner should know before hiring an SEO company.</p>
+        <span class="blog-link">Read More &rarr;</span>
+      </a>
+
+      <a href="/seo-and-digital-marketing-services.html" class="blog-card">
+        <span class="blog-tag">Overview</span>
+        <h3>SEO & Digital Marketing Services</h3>
+        <p>An overview of our complete service stack and process.</p>
+        <span class="blog-link">Read More &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+  
   <!-- ============================================================ -->
   <!-- OUR PROCESS SECTION (TIMELINE)                                -->
   <!-- ============================================================ -->
@@ -1636,7 +1755,9 @@ a, button, label {
           </p>
           <div class="footer-social">
             <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.instagram.com/growthwithrp?igsh=MWsxZ2liYXo4Y3ZnbA%3D%3D&utm_source=qr" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+  <i class="fa-brands fa-instagram"></i>
+</a>
             <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="#" class="social-link" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
@@ -1652,6 +1773,7 @@ a, button, label {
             <li><a href="#services">Services</a></li>
             <li><a href="#process">Our Process</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#blog">Blog</a></li>
           </ul>
         </div>
 
