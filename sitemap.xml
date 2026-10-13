@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-    <loc>https://growwithrp.tech/</loc>
-</url>
+  <url><loc>https://www.growwithrp.tech/</loc></url>
+  <url><loc>https://www.growwithrp.tech/blog.html</loc></url>
+
+  <url><loc>https://www.growwithrp.tech/seo-services-in-panchkula.html</loc></url>
+  <url><loc>https://www.growwithrp.tech/digital-marketing-agency-in-panchkula.html</loc></url>
+  <url><loc>https://www.growwithrp.tech/seo-company-in-panchkula.html</loc></url>
+  <url><loc>https://www.growwithrp.tech/digital-marketing-agency-in-kaithal.html</loc></url>
+  <url><loc>https://www.growwithrp.tech/seo-company-in-kaithal.html</loc></url>
+  <url><loc>https://www.growwithrp.tech/web-development-company-in-kaithal.html</loc></url>
+  <url><loc>https://www.growwithrp.tech/digital-marketing-services-in-haryana.html</loc></url>
+  <url><loc>https://www.growwithrp.tech/best-seo-company-in-india.html</loc></url>
+  <url><loc>https://www.growwithrp.tech/seo-company-in-mohali.html</loc></url>
+  <url><loc>https://www.growwithrp.tech/top-10-seo-company-in-india.html</loc></url>
 
 </urlset>
