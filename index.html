@@ -595,6 +595,10 @@
       </div>
 
       <form id="consultForm" class="mt-10 bg-white rounded-2xl p-6 sm:p-10 grid sm:grid-cols-2 gap-5" novalidate>
+        <input type="hidden" name="access_key" value="73f38fbb-dcd8-459a-997f-7b736d1f6a33">
+        <input type="hidden" name="subject" value="New Enquiry - Grow with RP Website">
+        <input type="hidden" name="from_name" value="Grow with RP Website">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
         <div class="sm:col-span-1">
           <label for="name" class="block text-sm font-semibold text-navy mb-1">Full Name <span class="text-red-600">*</span></label>
           <input type="text" id="name" name="name" required class="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm" autocomplete="name">
@@ -771,7 +775,7 @@
   // Consultation form validation + submission
   // Replace FORM_ENDPOINT with a real form-backend URL (e.g. from Formspree
   // or Getform) connected to growwithrp08@gmail.com to receive submissions.
-  const FORM_ENDPOINT = "";
+  const FORM_ENDPOINT = "https://api.web3forms.com/submit";
 
   const form = document.getElementById('consultForm');
   const statusEl = document.getElementById('formStatus');
