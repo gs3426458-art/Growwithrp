@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEO and Website Development Company | Grow with RP</title>
+<title>SEO and Web Development Company | Grow with RP</title>
 <meta name="description" content="Grow with RP offers SEO, social media marketing, Meta Ads management, and web development for businesses across Haryana, Chandigarh, and the Tricity region.">
 <link rel="canonical" href="https://www.growwithrp.tech/">
 <meta name="robots" content="index, follow">
@@ -14,12 +14,12 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grow with RP">
-<meta property="og:title" content="SEO and Website Development Company | Grow with RP | Grow with RP">
+<meta property="og:title" content="SEO and Web Development Company | Grow with RP">
 <meta property="og:description" content="SEO, social media marketing, Meta Ads management, and web development for businesses across Haryana, Chandigarh, and the Tricity region.">
 <meta property="og:url" content="https://www.growwithrp.tech/">
 <meta property="og:image" content="https://images.pexels.com/photos/577195/pexels-photo-577195.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SEO and Website Development Company | Grow with RP| Grow with RP">
+<meta name="twitter:title" content="SEO and Web Development Company | Grow with RP">
 <meta name="twitter:description" content="SEO, social media marketing, Meta Ads management, and web development for Haryana and the Tricity region.">
 <meta name="twitter:image" content="https://images.pexels.com/photos/577195/pexels-photo-577195.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200">
 
@@ -51,6 +51,12 @@
   summary::-webkit-details-marker{ display:none; }
   .no-scrollbar::-webkit-scrollbar{display:none;}
   body{overflow-x:hidden;}
+  /* Services dropdown (slide down) */
+  .svc-menu{ max-height:0; opacity:0; visibility:hidden; overflow:hidden; transform:translateY(-8px);
+    transition:max-height .35s ease, opacity .25s ease, transform .25s ease, visibility .25s; }
+  .svc-menu.open{ max-height:420px; opacity:1; visibility:visible; transform:translateY(0); }
+  .svc-chev{ transition:transform .25s ease; }
+  .svc-open .svc-chev{ transform:rotate(180deg); }
 </style>
 
 <script type="application/ld+json">
@@ -86,7 +92,7 @@
       "@type": "WebPage",
       "@id": "https://www.growwithrp.tech/#webpage",
       "url": "https://www.growwithrp.tech/",
-      "name": "SEO & Website Development Company | Grow with RP",
+      "name": "SEO and Web Development Company | Grow with RP",
       "description": "Grow with RP offers SEO, social media marketing, Meta Ads management, and web development for businesses across Haryana, Chandigarh, and the Tricity region.",
       "isPartOf": { "@id": "https://www.growwithrp.tech/#website" },
       "about": { "@id": "https://www.growwithrp.tech/#organization" }
@@ -128,7 +134,21 @@
     <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-navy" aria-label="Primary">
       <a href="#top" class="hover:text-brand transition-colors">Home</a>
       <a href="#about" class="hover:text-brand transition-colors">About</a>
-      <a href="#services" class="hover:text-brand transition-colors">Services</a>
+      <div class="relative" id="svcDrop">
+        <button type="button" id="svcBtn" class="inline-flex items-center gap-1 hover:text-brand transition-colors" aria-expanded="false" aria-haspopup="true" aria-controls="svcMenu">
+          Services
+          <svg class="svc-chev w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div id="svcMenu" class="svc-menu absolute left-0 top-full mt-3 w-64 bg-white border border-slate-200 rounded-xl shadow-lg z-50" role="menu">
+          <div class="py-2">
+            <a href="seo-services.html" role="menuitem" class="block px-5 py-2.5 text-sm hover:bg-blue-50 hover:text-brand transition-colors">SEO Services</a>
+            <a href="social-media-marketing.html" role="menuitem" class="block px-5 py-2.5 text-sm hover:bg-blue-50 hover:text-brand transition-colors">Social Media Marketing</a>
+            <a href="meta-ads-management.html" role="menuitem" class="block px-5 py-2.5 text-sm hover:bg-blue-50 hover:text-brand transition-colors">Meta Ads Management</a>
+            <a href="web-development-services.html" role="menuitem" class="block px-5 py-2.5 text-sm hover:bg-blue-50 hover:text-brand transition-colors">Web Development</a>
+            <a href="#services" role="menuitem" class="block px-5 py-2.5 mt-1 text-xs font-semibold text-brand border-t border-slate-100 hover:bg-blue-50">View all services &darr;</a>
+          </div>
+        </div>
+      </div>
       <a href="blog.html" class="hover:text-brand transition-colors">Blog</a>
       <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
     </nav>
@@ -145,7 +165,19 @@
     <div class="px-5 py-4 flex flex-col gap-1 text-navy font-medium">
       <a href="#top" class="py-3 border-b border-slate-100">Home</a>
       <a href="#about" class="py-3 border-b border-slate-100">About</a>
-      <a href="#services" class="py-3 border-b border-slate-100">Services</a>
+      <div class="border-b border-slate-100">
+        <button type="button" id="mobSvcBtn" class="w-full flex items-center justify-between py-3" aria-expanded="false" aria-controls="mobSvcMenu">
+          <span>Services</span>
+          <svg class="svc-chev w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div id="mobSvcMenu" class="svc-menu pl-4">
+          <a href="seo-services.html" class="block py-2.5 text-[15px] text-slate-600">SEO Services</a>
+          <a href="social-media-marketing.html" class="block py-2.5 text-[15px] text-slate-600">Social Media Marketing</a>
+          <a href="meta-ads-management.html" class="block py-2.5 text-[15px] text-slate-600">Meta Ads Management</a>
+          <a href="web-development-services.html" class="block py-2.5 text-[15px] text-slate-600">Web Development</a>
+          <a href="#services" class="block py-2.5 text-[15px] font-semibold text-brand">View all services</a>
+        </div>
+      </div>
       <a href="blog.html" class="py-3 border-b border-slate-100">Blog</a>
       <a href="#contact" class="py-3 border-b border-slate-100">Contact</a>
       <a href="#contact" class="mt-3 text-center rounded-full bg-brand text-white px-5 py-3 text-sm font-semibold">Get a Free Consultation</a>
@@ -160,7 +192,7 @@
     <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-12 items-center">
       <div>
         <p class="inline-block text-xs font-bold tracking-wide uppercase text-brand bg-blue-50 px-3 py-1 rounded-full mb-5">Haryana &middot; Chandigarh &middot; Tricity Region</p>
-        <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-navy leading-tight">SEO & Website Development Company</h1>
+        <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-navy leading-tight">SEO and Web Development Company</h1>
         <p class="mt-5 text-lg text-slate-600 leading-relaxed">Grow with RP helps businesses across Haryana and the Tricity region improve their online visibility, strengthen their digital presence, and reach the right local audience. We combine SEO, social media marketing, Meta Ads management, and web development to help your business generate genuine enquiries.</p>
         <p class="mt-4 text-slate-600 leading-relaxed">Whether you're based in Kaithal, Panchkula, Mohali, Ambala, or Chandigarh, we build a practical digital strategy around your actual business goals &mdash; not generic templates.</p>
         <div class="mt-8 flex flex-wrap gap-4">
@@ -247,7 +279,7 @@
           <h3 class="text-xl font-bold text-navy">SEO Services</h3>
           <p class="mt-3 text-slate-600 text-sm leading-relaxed">We work on technical SEO, on-page SEO, ethical off-page link building, keyword research based on real search intent, content optimisation, local SEO, and Google Business Profile optimisation &mdash; the fundamentals that build sustainable organic visibility.</p>
           <p class="mt-3 text-slate-600 text-sm leading-relaxed">Our SEO work supports businesses looking for <a href="digital-marketing-services-in-haryana.html" class="text-brand font-medium underline">SEO services in Haryana</a>, including dedicated approaches for <a href="seo-services-in-panchkula.html" class="text-brand font-medium underline">SEO services in Panchkula</a>, an <a href="seo-company-in-kaithal.html" class="text-brand font-medium underline">SEO company in Kaithal</a>, and an <a href="seo-company-in-mohali.html" class="text-brand font-medium underline">SEO company in Mohali</a>.</p>
-          <a href="digital-marketing-services-in-haryana.html" class="inline-block mt-5 text-navy font-semibold text-sm">See our SEO approach for Haryana &rarr;</a>
+          <a href="seo-services.html" class="inline-block mt-5 text-navy font-semibold text-sm">See our SEO approach for Haryana &rarr;</a>
         </article>
 
         <!-- SMM -->
@@ -258,7 +290,7 @@
           <h3 class="text-xl font-bold text-navy">Social Media Marketing (SMM)</h3>
           <p class="mt-3 text-slate-600 text-sm leading-relaxed">We plan content calendars, design creatives and write captions, manage a consistent publishing strategy, and focus on organic audience development while keeping your brand presentation consistent across platforms.</p>
           <p class="mt-3 text-slate-600 text-sm leading-relaxed">Where performance analysis is part of the agreed scope, we review what content resonates with your audience and refine the plan accordingly.</p>
-          <a href="#contact" class="inline-block mt-5 text-navy font-semibold text-sm">Plan your social media strategy &rarr;</a>
+          <a href="social-media-marketing.html" class="inline-block mt-5 text-navy font-semibold text-sm">Plan your social media strategy &rarr;</a>
         </article>
 
         <!-- Meta Ads -->
@@ -269,7 +301,7 @@
           <h3 class="text-xl font-bold text-navy">Meta Ads Management</h3>
           <p class="mt-3 text-slate-600 text-sm leading-relaxed">We manage Facebook and Instagram advertising end to end: campaign setup, audience targeting, creative testing, budget monitoring, conversion tracking where technically supported, and ongoing performance evaluation.</p>
           <p class="mt-3 text-slate-600 text-sm leading-relaxed">Our management fee is always kept separate from your actual ad spend, and we do not promise guaranteed results from any campaign.</p>
-          <a href="#contact" class="inline-block mt-5 text-navy font-semibold text-sm">Discuss a Meta Ads plan &rarr;</a>
+          <a href="meta-ads-management.html" class="inline-block mt-5 text-navy font-semibold text-sm">Discuss a Meta Ads plan &rarr;</a>
         </article>
 
         <!-- Web Dev -->
@@ -280,7 +312,7 @@
           <h3 class="text-xl font-bold text-navy">Web Development</h3>
           <p class="mt-3 text-slate-600 text-sm leading-relaxed">We build responsive business websites and landing pages with mobile-friendly experiences, SEO-friendly structure, strong performance, clear navigation, and layouts designed around generating enquiries.</p>
           <p class="mt-3 text-slate-600 text-sm leading-relaxed">This covers <a href="web-development-company-in-kaithal.html" class="text-brand font-medium underline">web development in Kaithal</a>, wider <a href="digital-marketing-services-in-haryana.html" class="text-brand font-medium underline">website development in Haryana</a>, and projects across the Tricity region.</p>
-          <a href="web-development-company-in-kaithal.html" class="inline-block mt-5 text-navy font-semibold text-sm">See our web development work &rarr;</a>
+          <a href="web-development-services.html" class="inline-block mt-5 text-navy font-semibold text-sm">See our web development work &rarr;</a>
         </article>
 
       </div>
@@ -700,10 +732,10 @@
     <div>
       <h3 class="font-bold text-white">Services</h3>
       <ul class="mt-4 space-y-2 text-sm">
-        <li><a href="#services" class="hover:text-white">SEO Services</a></li>
-        <li><a href="#services" class="hover:text-white">Social Media Marketing</a></li>
-        <li><a href="#services" class="hover:text-white">Meta Ads Management</a></li>
-        <li><a href="#services" class="hover:text-white">Web Development</a></li>
+        <li><a href="seo-services.html" class="hover:text-white">SEO Services</a></li>
+        <li><a href="social-media-marketing.html" class="hover:text-white">Social Media Marketing</a></li>
+        <li><a href="meta-ads-management.html" class="hover:text-white">Meta Ads Management</a></li>
+        <li><a href="web-development-services.html" class="hover:text-white">Web Development</a></li>
       </ul>
     </div>
 
@@ -767,6 +799,29 @@
       iconOpen.classList.remove('hidden');
       iconClose.classList.add('hidden');
     });
+  });
+
+  // Services dropdown (desktop) + accordion (mobile)
+  const svcDrop = document.getElementById('svcDrop');
+  const svcBtn = document.getElementById('svcBtn');
+  const svcMenu = document.getElementById('svcMenu');
+  function setSvc(open){
+    svcMenu.classList.toggle('open', open);
+    svcDrop.classList.toggle('svc-open', open);
+    svcBtn.setAttribute('aria-expanded', String(open));
+  }
+  svcBtn.addEventListener('click', (e) => { e.stopPropagation(); setSvc(!svcMenu.classList.contains('open')); });
+  svcMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setSvc(false)));
+  document.addEventListener('click', (e) => { if (!svcDrop.contains(e.target)) setSvc(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSvc(false); });
+
+  const mobSvcBtn = document.getElementById('mobSvcBtn');
+  const mobSvcMenu = document.getElementById('mobSvcMenu');
+  mobSvcBtn.addEventListener('click', () => {
+    const open = !mobSvcMenu.classList.contains('open');
+    mobSvcMenu.classList.toggle('open', open);
+    mobSvcBtn.classList.toggle('svc-open', open);
+    mobSvcBtn.setAttribute('aria-expanded', String(open));
   });
 
   // Footer year
