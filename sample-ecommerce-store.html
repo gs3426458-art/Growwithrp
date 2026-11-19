@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Saanjh Apparel (Demo) | Advanced Clothing Ecommerce Sample</title>
+<meta name="description" content="Demo clothing store with filters, size and colour selection, quick view, wishlist, cart drawer and promo codes. Fictional brand for sample purposes.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1B1B1F;--mut:#6B6B76;--line:#E8E6EE;--bg:#FAF9F7;--acc:#7C2D12;--acc2:#C2410C;--gold:#B45309;--ok:#15803D}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.demo-bar{background:#FFF8E1;border-bottom:1px solid #E5D48A;font-size:.8rem;text-align:center;padding:8px 12px;color:#7A5C00}
+.demo-bar a{font-weight:700;color:#7A5C00}
+.top-cover{background:linear-gradient(120deg,#78350F,#B45309 55%,#FBCFE8);color:#fff;text-align:center;padding:26px 20px}
+.top-cover .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.9;font-weight:700}
+.top-cover h2{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;margin-top:6px}
+.top-cover p{font-size:.9rem;opacity:.95;margin-top:4px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.bar{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px}
+.logo{font-weight:900;font-size:1.3rem;letter-spacing:.02em;color:var(--acc)}
+.logo span{color:var(--gold)}
+nav.cats{display:flex;gap:22px;margin-left:24px}
+nav.cats button{background:none;border:0;font-weight:600;color:var(--ink);padding:6px 0;border-bottom:2px solid transparent}
+nav.cats button.on,nav.cats button:hover{border-bottom-color:var(--acc2);color:var(--acc)}
+.search{margin-left:auto;position:relative}
+.search input{padding:10px 14px 10px 36px;border:1px solid var(--line);border-radius:999px;width:240px;background:#fff}
+.search::before{content:"⌕";position:absolute;left:12px;top:7px;color:var(--mut);font-size:1.1rem}
+.icons{display:flex;gap:12px;align-items:center}
+.icon-btn{position:relative;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-weight:600}
+.badge{position:absolute;top:-6px;right:-6px;background:var(--acc2);color:#fff;border-radius:999px;font-size:.7rem;padding:1px 6px;min-width:20px;text-align:center;display:none}
+.badge.show{display:inline-block}
+.promo-strip{background:var(--acc);color:#fff;text-align:center;font-size:.88rem;padding:9px}
+.hero{max-width:1200px;margin:0 auto;padding:48px 20px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.1;font-weight:900;color:var(--acc)}
+.hero p{color:var(--mut);margin-top:14px;max-width:520px}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:999px;padding:13px 26px;font-weight:700;text-decoration:none}
+.btn:hover{background:#9A3412}
+.btn.ghost{background:transparent;color:var(--acc);border:2px solid var(--acc)}
+.hero-art{background:linear-gradient(160deg,#FDE68A,#FBCFE8);border-radius:24px;padding:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hero-art .tile{background:#fff;border-radius:16px;padding:10px;text-align:center;font-size:.8rem;font-weight:700;color:var(--mut)}
+.hero-art .tile svg{width:100%;height:auto}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin:28px 0 18px}
+.toolbar .left{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-weight:600;font-size:.85rem}
+.chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+select.sort{border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:#fff}
+.range{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}nav.cats{display:none}.search input{width:160px}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.thumb{position:relative;height:250px;display:grid;place-items:center;cursor:pointer}
+.thumb svg{height:200px;width:auto}
+.tag{position:absolute;top:12px;left:12px;background:#fff;color:var(--acc);font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
+.tag.sale{background:var(--acc2);color:#fff}
+.tag.best{background:var(--gold);color:#fff}
+.fav{position:absolute;top:10px;right:10px;background:#fff;border:0;border-radius:999px;width:36px;height:36px;font-size:1.1rem;color:var(--mut)}
+.fav.on{color:#DB2777}
+.info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.info h3{font-size:1rem;font-weight:700}
+.meta{font-size:.8rem;color:var(--mut)}
+.price{font-weight:800;font-size:1rem}
+.price s{color:var(--mut);font-weight:500;font-size:.85rem;margin-left:6px}
+.stars{color:#D97706;font-size:.8rem}
+.swatches{display:flex;gap:6px;margin-top:4px}
+.sw{width:16px;height:16px;border-radius:50%;border:1px solid #0002}
+.add-quick{margin-top:auto;background:var(--ink);color:#fff;border:0;border-radius:12px;padding:10px;font-weight:700}
+.add-quick:hover{background:var(--acc)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:40px}
+.perks{max-width:1200px;margin:56px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.perk{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.perk b{display:block;color:var(--acc);margin-bottom:4px}
+.perk p{font-size:.88rem;color:var(--mut)}
+@media(max-width:800px){.perks{grid-template-columns:1fr 1fr}}
+.news{background:var(--acc);color:#fff;margin-top:56px;padding:46px 20px;text-align:center}
+.news h2{font-size:1.6rem}
+.news form{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.news input{padding:12px 16px;border-radius:999px;border:0;width:300px;max-width:100%}
+.news button{background:#fff;color:var(--acc);border:0;border-radius:999px;padding:12px 22px;font-weight:800}
+footer{padding:28px 20px;text-align:center;color:var(--mut);font-size:.85rem;background:#fff;border-top:1px solid var(--line)}
+/* overlays */
+.overlay{position:fixed;inset:0;background:rgba(20,10,5,.5);display:none;z-index:50}
+.overlay.open{display:block}
+.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(860px,94vw);max-height:90vh;overflow:auto;background:#fff;border-radius:22px;display:none;z-index:51}
+.modal.open{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:700px){.modal.open{grid-template-columns:1fr}}
+.modal .art{background:#F5F5F4;display:grid;place-items:center;padding:30px;border-radius:22px 0 0 22px}
+.modal .art svg{width:70%;height:auto}
+.modal .body{padding:28px;display:flex;flex-direction:column;gap:14px}
+.modal h3{font-size:1.4rem}
+.lbl{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;font-weight:600;min-width:44px}
+.opt.on{border-color:var(--acc);background:#FFF1E6;color:var(--acc)}
+.opt.disabled{opacity:.35;text-decoration:line-through}
+.sw.on{outline:2px solid var(--acc);outline-offset:2px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.qty button{background:#fff;border:0;padding:8px 14px;font-size:1rem}
+.qty span{padding:0 12px;min-width:36px;text-align:center}
+.close{position:absolute;right:14px;top:12px;background:#fff;border:0;font-size:1.4rem;color:var(--mut);z-index:2}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100vw);background:#fff;transform:translateX(100%);transition:transform .3s ease;z-index:52;display:flex;flex-direction:column;box-shadow:-10px 0 30px #0002}
+.drawer.open{transform:none}
+.drawer header{position:static;padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.drawer .items{flex:1;overflow:auto;padding:14px 20px;display:flex;flex-direction:column;gap:14px}
+.line{display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;border-bottom:1px dashed var(--line);padding-bottom:12px}
+.line .mini{background:#F5F5F4;border-radius:12px;height:70px;display:grid;place-items:center}
+.line .mini svg{height:60px;width:auto}
+.line small{color:var(--mut)}
+.line .rm{background:none;border:0;color:var(--mut);font-size:.8rem;text-decoration:underline;margin-top:4px}
+.drawer .foot{border-top:1px solid var(--line);padding:16px 20px;display:flex;flex-direction:column;gap:8px}
+.row{display:flex;justify-content:space-between;font-size:.92rem}
+.promo{display:flex;gap:8px}
+.promo input{flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:10px}
+.promo button{background:var(--ink);color:#fff;border:0;border-radius:10px;padding:10px 14px;font-weight:700}
+.total{font-size:1.1rem;font-weight:900}
+.checkout{background:var(--acc);color:#fff;border:0;border-radius:999px;padding:14px;font-weight:800;margin-top:6px}
+.note{font-size:.75rem;color:var(--mut)}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;transition:transform .3s;z-index:60;font-weight:600}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="top-cover"><div class="k">Sample 3 of 3</div><h2>Saanjh Apparel</h2><p>Clothing ecommerce store (demo)</p></div>
+<div class="demo-bar">Sample website for demonstration only. Brand, products, ratings and prices are fictional. <a href="samples.html">Back to samples</a></div>
+<div class="promo-strip">Demo: use code <b>DEMO10</b> at checkout for 10% off &middot; Free delivery on orders above &#8377;1,999</div>
+
+<header>
+  <div class="bar">
+    <div class="logo">SAANJH<span>.</span></div>
+    <nav class="cats" aria-label="Categories">
+      <button class="on" data-cat="all">All</button>
+      <button data-cat="women">Women</button>
+      <button data-cat="men">Men</button>
+      <button data-cat="kids">Kids</button>
+      <button data-cat="unisex">Unisex</button>
+    </nav>
+    <div class="search"><input id="q" type="search" placeholder="Search kurta, dress, jeans..." aria-label="Search products"></div>
+    <div class="icons">
+      <button class="icon-btn" id="wishBtn" aria-label="Wishlist">&#9825; <span id="wishCount">0</span></button>
+      <button class="icon-btn" id="bagBtn" aria-label="Open bag">Bag <span class="badge" id="bagBadge">0</span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Everyday clothes, made to fit</h1>
+    <p>A demo store with filters, size and colour selection, quick view, wishlist and a working bag. Explore the collection below.</p>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn" href="#shop">Shop new arrivals</a>
+      <a class="btn ghost" href="#shop" onclick="setCat('women')">Women's edit</a>
+    </div>
+  </div>
+  <div class="hero-art" id="heroArt"></div>
+</section>
+
+<main class="wrap" id="shop">
+  <div class="toolbar">
+    <div class="left" id="sizeChips"></div>
+    <div class="range">Max price <input type="range" id="maxP" min="500" max="4000" step="100" value="4000"> <span id="maxPv">&#8377;4,000</span></div>
+    <select class="sort" id="sort">
+      <option value="featured">Featured</option>
+      <option value="low">Price: low to high</option>
+      <option value="high">Price: high to low</option>
+      <option value="rating">Top rated</option>
+    </select>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<section class="perks">
+  <div class="perk"><b>Free delivery</b><p>On orders above &#8377;1,999. Standard delivery in 4 to 7 working days (demo policy).</p></div>
+  <div class="perk"><b>Easy returns</b><p>Return unused items within 7 days of delivery (demo policy).</p></div>
+  <div class="perk"><b>Size guide</b><p>Fit notes on every product. Helpful if you are between sizes.</p></div>
+  <div class="perk"><b>Secure checkout</b><p>Payments are handled by a trusted gateway in a real store. No card data is stored here.</p></div>
+</section>
+
+<section class="news">
+  <h2>Get 10% off your first order (demo)</h2>
+  <p style="opacity:.9;margin-top:8px">Sign up for new arrivals. This form is for demonstration and does not send any email.</p>
+  <form onsubmit="event.preventDefault();toast('Demo only: no subscription was saved.')">
+    <input type="email" placeholder="Your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<footer>&copy; <span id="yr"></span> Saanjh Apparel (demo). Fictional store for sample purposes.</footer>
+
+<!-- Quick view -->
+<div class="overlay" id="ov"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <button class="close" id="mClose" aria-label="Close">&times;</button>
+  <div class="art" id="mArt"></div>
+  <div class="body">
+    <p class="meta" id="mCat"></p>
+    <h3 id="mTitle"></h3>
+    <p class="price" id="mPrice"></p>
+    <p class="stars" id="mStars"></p>
+    <div><div class="lbl">Colour</div><div class="swatches" id="mColours" style="margin-top:8px"></div></div>
+    <div><div class="lbl">Size</div><div class="opts" id="mSizes" style="margin-top:8px"></div></div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <div class="qty"><button id="qMinus" aria-label="Decrease">&minus;</button><span id="qVal">1</span><button id="qPlus" aria-label="Increase">+</button></div>
+      <button class="btn" id="mAdd" style="flex:1">Add to bag</button>
+      <button class="icon-btn" id="mWish">&#9825;</button>
+    </div>
+    <p class="note" id="mNote">Fit note: choose the size that matches your usual fit.</p>
+  </div>
+</div>
+
+<!-- Bag drawer -->
+<aside class="drawer" id="drawer" aria-label="Shopping bag">
+  <header><b>Your bag</b><button class="icon-btn" id="dClose">Close</button></header>
+  <div class="items" id="items"></div>
+  <div class="foot">
+    <div class="promo"><input id="code" placeholder="Promo code"><button id="applyCode">Apply</button></div>
+    <div class="row"><span>Subtotal</span><span id="sub">&#8377;0</span></div>
+    <div class="row"><span>Discount</span><span id="disc">&#8377;0</span></div>
+    <div class="row"><span>Delivery</span><span id="ship">&#8377;0</span></div>
+    <div class="row total"><span>Total</span><span id="tot">&#8377;0</span></div>
+    <button class="checkout" id="checkout">Checkout (demo)</button>
+    <p class="note">Demo checkout. No payment is taken.</p>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- garment illustrations ---------- */
+function garment(type,c,c2){
+  const shapes={
+    shirt:'M60 40 L86 24 Q100 36 114 24 L140 40 L128 72 L118 66 L118 196 L82 196 L82 66 L72 72 Z',
+    kurta:'M68 22 L132 22 L144 64 L136 204 L64 204 L56 64 Z',
+    dress:'M80 22 L120 22 L130 50 L152 204 L48 204 L70 50 Z',
+    trousers:'M60 26 L140 26 L146 204 L104 204 L100 110 L96 204 L54 204 Z'
+  };
+  const d=shapes[type]||shapes.shirt;
+  return `<svg viewBox="0 0 200 220" aria-hidden="true"><defs><linearGradient id="g${type}${c.replace('#','')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="${c2||c}"/></linearGradient></defs><path d="${d}" fill="url(#g${type}${c.replace('#','')})" stroke="#0001" stroke-width="2"/></svg>`;
+}
+const PRODUCTS=[
+ {id:1,name:'Linen Relaxed Shirt',cat:'men',price:1899,orig:null,type:'shirt',colours:['#E2E8F0','#0F766E','#1E3A8A'],sizes:['S','M','L','XL'],rating:4.6,reviews:128,badge:'new'},
+ {id:2,name:'Cotton Kurta Set',cat:'women',price:2499,orig:null,type:'kurta',colours:['#FDE68A','#BE123C','#14532D'],sizes:['S','M','L','XL'],rating:4.8,reviews:212,badge:'best'},
+ {id:3,name:'Floral Midi Dress',cat:'women',price:2499,orig:2999,type:'dress',colours:['#FBCFE8','#1E293B'],sizes:['XS','S','M','L'],rating:4.5,reviews:97,badge:'sale'},
+ {id:4,name:'Slim Fit Denim Jeans',cat:'men',price:2199,orig:null,type:'trousers',colours:['#1E3A8A','#334155'],sizes:['28','30','32','34'],rating:4.4,reviews:188,badge:null},
+ {id:5,name:'Kids Printed Tee',cat:'kids',price:699,orig:null,type:'shirt',colours:['#FDE047','#60A5FA'],sizes:['2Y','4Y','6Y','8Y'],rating:4.7,reviews:64,badge:'new'},
+ {id:6,name:'Organic Cotton Hoodie',cat:'unisex',price:2299,orig:null,type:'shirt',colours:['#78716C','#0F172A'],sizes:['S','M','L','XL'],rating:4.6,reviews:141,badge:null},
+ {id:7,name:'Pleated Palazzo Pants',cat:'women',price:1599,orig:null,type:'trousers',colours:['#E7E5E4','#7C2D12'],sizes:['S','M','L'],rating:4.3,reviews:76,badge:null},
+ {id:8,name:'Chino Trousers',cat:'men',price:1799,orig:null,type:'trousers',colours:['#A16207','#334155'],sizes:['30','32','34','36'],rating:4.5,reviews:119,badge:null},
+ {id:9,name:'Printed Anarkali',cat:'women',price:3299,orig:null,type:'kurta',colours:['#7C3AED','#0E7490'],sizes:['S','M','L','XL'],rating:4.9,reviews:55,badge:'new'},
+ {id:10,name:'Kids Denim Dungaree',cat:'kids',price:1299,orig:null,type:'trousers',colours:['#1D4ED8'],sizes:['2Y','4Y','6Y'],rating:4.6,reviews:43,badge:null},
+ {id:11,name:'Cropped Linen Jacket',cat:'women',price:2799,orig:null,type:'shirt',colours:['#F5F5F4','#D6D3D1'],sizes:['XS','S','M','L'],rating:4.4,reviews:61,badge:null},
+ {id:12,name:'Piqué Polo Tee',cat:'men',price:1099,orig:1299,type:'shirt',colours:['#FFFFFF','#15803D','#B91C1C'],sizes:['S','M','L','XL','XXL'],rating:4.5,reviews:203,badge:'sale'}
+];
+const ALL_SIZES=['XS','S','M','L','XL','XXL','28','30','32','34','36','2Y','4Y','6Y','8Y'];
+const COLOUR_NAMES={'#E2E8F0':'Light grey','#0F766E':'Teal','#1E3A8A':'Navy','#FDE68A':'Mustard','#BE123C':'Rose','#14532D':'Forest','#FBCFE8':'Blush','#1E293B':'Charcoal','#334155':'Slate','#FDE047':'Yellow','#60A5FA':'Sky','#78716C':'Stone','#0F172A':'Black','#E7E5E4':'Sand','#7C2D12':'Rust','#A16207':'Khaki','#7C3AED':'Violet','#0E7490':'Cyan','#1D4ED8':'Blue','#F5F5F4':'Off white','#D6D3D1':'Taupe','#FFFFFF':'White','#15803D':'Green','#B91C1C':'Red'};
+
+const state={cat:'all',q:'',max:4000,sort:'featured',size:'',wish:new Set(),cart:[],promo:0};
+const money=n=>'₹'+n.toLocaleString('en-IN');
+const $=id=>document.getElementById(id);
+
+function starStr(r){const f=Math.round(r);return '★'.repeat(f)+'☆'.repeat(5-f)+' '+r.toFixed(1);}
+
+function renderHero(){
+  const picks=[PRODUCTS[1],PRODUCTS[8],PRODUCTS[3]];
+  $('heroArt').innerHTML=picks.map(p=>`<div class="tile">${garment(p.type,p.colours[0],p.colours[1])}<div style="margin-top:6px">${p.name}</div></div>`).join('');
+}
+function renderSizes(){
+  const sizes=[...new Set(PRODUCTS.flatMap(p=>p.sizes))].filter(s=>['S','M','L','XL','XS','XXL'].includes(s));
+  $('sizeChips').innerHTML=`<button class="chip ${state.size===''?'on':''}" data-size="">All sizes</button>`+
+    sizes.map(s=>`<button class="chip ${state.size===s?'on':''}" data-size="${s}">${s}</button>`).join('');
+}
+function filtered(){
+  let list=PRODUCTS.filter(p=>
+    (state.cat==='all'||p.cat===state.cat) &&
+    p.price<=state.max &&
+    (state.size===''||p.sizes.includes(state.size)) &&
+    (state.q===''||p.name.toLowerCase().includes(state.q.toLowerCase()))
+  );
+  const s=state.sort;
+  if(s==='low') list.sort((a,b)=>a.price-b.price);
+  if(s==='high') list.sort((a,b)=>b.price-a.price);
+  if(s==='rating') list.sort((a,b)=>b.rating-a.rating);
+  return list;
+}
+function renderGrid(){
+  const list=filtered();
+  if(!list.length){$('grid').innerHTML='<div class="empty">No products match these filters. Try a different size or price.</div>';return;}
+  $('grid').innerHTML=list.map(p=>{
+    const tag=p.badge?`<span class="tag ${p.badge==='sale'?'sale':p.badge==='best'?'best':''}">${p.badge==='new'?'New':p.badge==='best'?'Bestseller':'Sale'}</span>`:'';
+    const price=p.orig?`<span class="price">${money(p.price)}<s>${money(p.orig)}</s></span>`:`<span class="price">${money(p.price)}</span>`;
+    const sw=p.colours.map(c=>`<span class="sw" style="background:${c}" title="${COLOUR_NAMES[c]||''}"></span>`).join('');
+    return `<article class="card">
+      <div class="thumb" data-open="${p.id}" style="background:linear-gradient(160deg,#F5F5F4,${p.colours[0]}22)">
+        ${tag}
+        <button class="fav ${state.wish.has(p.id)?'on':''}" data-wish="${p.id}" aria-label="Wishlist">${state.wish.has(p.id)?'♥':'♡'}</button>
+        ${garment(p.type,p.colours[0],p.colours[1])}
+      </div>
+      <div class="info">
+        <h3>${p.name}</h3>
+        <div class="meta">${p.cat.charAt(0).toUpperCase()+p.cat.slice(1)} &middot; ${p.sizes.length} sizes</div>
+        <div class="stars">${starStr(p.rating)} <span class="meta">(${p.reviews})</span></div>
+        <div class="swatches">${sw}</div>
+        ${price}
+        <button class="add-quick" data-open="${p.id}">Quick view</button>
+      </div>
+    </article>`;
+  }).join('');
+}
+function renderAll(){renderSizes();renderGrid();renderHero();updateCounts();}
+
+/* ---------- quick view ---------- */
+let cur=null, curColour=null, curSize=null, curQty=1;
+function openModal(id){
+  cur=PRODUCTS.find(p=>p.id===id); curColour=cur.colours[0]; curSize=null; curQty=1;
+  $('mArt').innerHTML=garment(cur.type,cur.colours[0],cur.colours[1]);
+  $('mCat').textContent=cur.cat.toUpperCase();
+  $('mTitle').textContent=cur.name;
+  $('mPrice').innerHTML=cur.orig?`${money(cur.price)} <s style="color:#6B6B76;font-weight:500">${money(cur.orig)}</s>`:money(cur.price);
+  $('mStars').textContent=`${starStr(cur.rating)} (${cur.reviews} demo reviews)`;
+  renderModalOptions();
+  $('modal').classList.add('open');$('ov').classList.add('open');
+}
+function renderModalOptions(){
+  $('mColours').innerHTML=cur.colours.map(c=>`<button class="sw ${c===curColour?'on':''}" style="background:${c};width:26px;height:26px" data-col="${c}" aria-label="${COLOUR_NAMES[c]||c}"></button>`).join('');
+  $('mSizes').innerHTML=cur.sizes.map(s=>`<button class="opt ${s===curSize?'on':''}" data-sz="${s}">${s}</button>`).join('');
+  $('qVal').textContent=curQty;
+  $('mWish').textContent=state.wish.has(cur.id)?'♥':'♡';
+  $('mNote').textContent=curSize?`Selected: ${curSize} · ${COLOUR_NAMES[curColour]||''}`:'Choose a size to add to your bag.';
+}
+function closeModal(){$('modal').classList.remove('open');$('ov').classList.remove('open');}
+
+/* ---------- cart ---------- */
+function addToCart(p,size,colour,qty){
+  const key=p.id+'|'+size+'|'+colour;
+  const line=state.cart.find(l=>l.key===key);
+  if(line) line.qty+=qty; else state.cart.push({key,id:p.id,size,colour,qty});
+  updateCounts(); toast(`Added ${p.name} (${size}) to your bag`);
+}
+function cartCount(){return state.cart.reduce((n,l)=>n+l.qty,0);}
+function subtotal(){return state.cart.reduce((n,l)=>n+l.qty*PRODUCTS.find(p=>p.id===l.id).price,0);}
+function updateCounts(){
+  const c=cartCount();
+  $('bagBadge').textContent=c; $('bagBadge').classList.toggle('show',c>0);
+  $('wishCount').textContent=state.wish.size;
+  renderCart();
+}
+function renderCart(){
+  const box=$('items');
+  if(!state.cart.length){box.innerHTML='<p class="note" style="padding:20px 0">Your bag is empty. Pick a size on any product to begin.</p>';}
+  else box.innerHTML=state.cart.map(l=>{
+    const p=PRODUCTS.find(x=>x.id===l.id);
+    return `<div class="line">
+      <div class="mini">${garment(p.type,p.colours[0],p.colours[1])}</div>
+      <div><b>${p.name}</b><br><small>Size ${l.size} · ${COLOUR_NAMES[l.colour]||''}</small>
+        <div class="qty" style="margin-top:8px"><button data-dec="${l.key}">&minus;</button><span>${l.qty}</span><button data-inc="${l.key}">+</button></div>
+        <button class="rm" data-rm="${l.key}">Remove</button></div>
+      <div><b>${money(p.price*l.qty)}</b></div>
+    </div>`;}).join('');
+  const sub=subtotal();
+  const disc=Math.round(sub*state.promo);
+  const after=sub-disc;
+  const ship=(sub===0||sub>=1999)?0:99;
+  $('sub').textContent=money(sub);
+  $('disc').textContent='−'+money(disc);
+  $('ship').textContent=ship===0?'Free':money(ship);
+  $('tot').textContent=money(sub===0?0:after+ship);
+}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),2200);}
+function setCat(c){state.cat=c;document.querySelectorAll('nav.cats button').forEach(b=>b.classList.toggle('on',b.dataset.cat===c));renderGrid();}
+
+/* ---------- events ---------- */
+document.querySelectorAll('nav.cats button').forEach(b=>b.onclick=()=>setCat(b.dataset.cat));
+$('sizeChips').onclick=e=>{const b=e.target.closest('[data-size]');if(!b)return;state.size=b.dataset.size;renderSizes();renderGrid();};
+$('q').oninput=e=>{state.q=e.target.value;renderGrid();};
+$('maxP').oninput=e=>{state.max=+e.target.value;$('maxPv').textContent=money(state.max);renderGrid();};
+$('sort').onchange=e=>{state.sort=e.target.value;renderGrid();};
+$('grid').onclick=e=>{
+  const w=e.target.closest('[data-wish]');
+  if(w){const id=+w.dataset.wish;state.wish.has(id)?state.wish.delete(id):state.wish.add(id);renderGrid();updateCounts();return;}
+  const o=e.target.closest('[data-open]');
+  if(o) openModal(+o.dataset.open);
+};
+$('mClose').onclick=closeModal; $('ov').onclick=closeModal;
+$('mColours').onclick=e=>{const b=e.target.closest('[data-col]');if(!b)return;curColour=b.dataset.col;renderModalOptions();};
+$('mSizes').onclick=e=>{const b=e.target.closest('[data-sz]');if(!b)return;curSize=b.dataset.sz;renderModalOptions();};
+$('qPlus').onclick=()=>{curQty++;$('qVal').textContent=curQty;};
+$('qMinus').onclick=()=>{if(curQty>1){curQty--;$('qVal').textContent=curQty;}};
+$('mAdd').onclick=()=>{
+  if(!curSize){toast('Please choose a size first');return;}
+  addToCart(cur,curSize,curColour,curQty); closeModal();
+};
+$('mWish').onclick=()=>{state.wish.has(cur.id)?state.wish.delete(cur.id):state.wish.add(cur.id);renderModalOptions();renderGrid();updateCounts();};
+$('bagBtn').onclick=()=>$('drawer').classList.add('open');
+$('dClose').onclick=()=>$('drawer').classList.remove('open');
+$('wishBtn').onclick=()=>toast(state.wish.size?`You have ${state.wish.size} item(s) in your wishlist`:'Your wishlist is empty. Tap the heart on any product.');
+$('items').onclick=e=>{
+  const btn=e.target.closest('[data-inc],[data-dec],[data-rm]');
+  if(!btn)return;
+  const key=btn.dataset.inc||btn.dataset.dec||btn.dataset.rm;
+  const l=state.cart.find(x=>x.key===key); if(!l)return;
+  if(btn.dataset.inc) l.qty++;
+  if(btn.dataset.dec){l.qty--; if(l.qty<1) state.cart=state.cart.filter(x=>x!==l);}
+  if(btn.dataset.rm) state.cart=state.cart.filter(x=>x!==l);
+  updateCounts();
+};
+$('applyCode').onclick=()=>{
+  const c=$('code').value.trim().toUpperCase();
+  if(c==='DEMO10'){state.promo=0.10;toast('Demo code applied: 10% off');}
+  else if(c===''){state.promo=0;toast('Enter a code');}
+  else{state.promo=0;toast('Code not valid (demo codes: DEMO10)');}
+  renderCart();
+};
+$('checkout').onclick=()=>{ if(!state.cart.length){toast('Your bag is empty');return;} toast('Demo checkout: no order was placed'); };
+$('yr').textContent=new Date().getFullYear();
+renderAll();
+</script>
+</body>
+</html>
