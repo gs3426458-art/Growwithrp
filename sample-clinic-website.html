@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sunrise Family Clinic (Demo) | Sample Clinic Website</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:#1C2733;line-height:1.6;background:#F7F9FC}
+a{color:inherit}
+.w{max-width:1100px;margin:0 auto;padding:0 20px}
+.demo-bar{background:#FFF8E1;border-bottom:1px solid #E5D48A;font-size:.8rem;text-align:center;padding:8px 12px;color:#7A5C00}
+.demo-bar a{font-weight:700}
+header{background:#fff;border-bottom:1px solid #E2E8F0;position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
+.brand{font-weight:800;font-size:1.15rem}
+.nav nav a{margin-left:20px;text-decoration:none;font-weight:600;font-size:.92rem}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;font-size:.95rem}
+section{padding:64px 0}
+h1{font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.15;font-weight:800}
+h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;margin-bottom:8px}
+.lead{color:#5B6877;max-width:680px;margin-top:12px}
+.grid{display:grid;gap:20px;margin-top:32px}
+.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:800px){.g3,.g4,.g2{grid-template-columns:1fr}.nav nav{display:none}}
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:22px}
+.card h3{font-size:1.05rem}.card p{color:#5B6877;font-size:.92rem;margin-top:8px}
+form{display:grid;gap:12px;margin-top:20px;max-width:520px}
+input,select,textarea{font:inherit;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;width:100%}
+footer{padding:32px 0;font-size:.85rem;color:#5B6877;text-align:center;border-top:1px solid #E2E8F0;background:#fff}
+.note{font-size:.8rem;color:#5B6877;margin-top:12px}
+.top-cover{position:relative;overflow:hidden;color:#fff;padding:26px 20px;text-align:center}
+.top-cover .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85;font-weight:700}
+.top-cover h2{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;margin-top:6px;color:#fff}
+.top-cover p{font-size:.9rem;opacity:.9;margin-top:4px}
+
+
+:root{--c:#1D6FA3;--cd:#144D72;--cl:#E8F3FA}
+header .brand{color:var(--cd)}
+.hero{background:var(--cl);padding:72px 0}
+.btn-c{background:var(--c);color:#fff}
+.btn-oc{border-color:var(--c);color:var(--c)}
+.pill{display:inline-block;background:#fff;border:1px solid #BFD9EA;color:var(--cd);font-weight:700;font-size:.8rem;padding:5px 12px;border-radius:999px}
+.dr{display:flex;gap:14px;align-items:center}
+.av{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--c),var(--cd));color:#fff;display:grid;place-items:center;font-weight:800}
+.hours td{padding:8px 16px 8px 0;font-size:.95rem}
+.map{background:linear-gradient(135deg,#DCEBF5,#BFD9EA);border-radius:16px;min-height:220px;display:grid;place-items:center;color:var(--cd);font-weight:700}
+</style>
+</head>
+<body>
+<div class="top-cover" style="background:linear-gradient(120deg,#144D72,#1D6FA3 55%,#8EC5E6)"><div class="k">Sample 2 of 3</div><h2>Sunrise Family Clinic</h2><p>Clinic website (demo)</p></div>
+<div class="demo-bar">Sample website for demonstration only. Business name, details and content are fictional. <a href="../index.html">Back to samples</a> &middot; <a href="https://www.growwithrp.tech/#contact">Build one like this with Grow with RP</a></div>
+
+<header><div class="w nav"><span class="brand">Sunrise Family Clinic (Demo)</span>
+<nav><a href="#services">Services</a><a href="#doctors">Doctors</a><a href="#timings">Timings</a><a href="#book">Book</a></nav></div></header>
+
+<section class="hero">
+<div class="w" style="display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center">
+<div>
+<span class="pill">Demo clinic website</span>
+<h1 style="margin-top:16px">Family care, booked online in minutes</h1>
+<p class="lead">A sample clinic homepage showing services, doctor profiles, timings and an appointment request form. Replace with real details after verification.</p>
+<div style="margin-top:26px;display:flex;gap:14px;flex-wrap:wrap">
+<a class="btn btn-c" href="#book">Request appointment</a>
+<a class="btn btn-oc" href="#timings">See timings</a>
+</div>
+</div>
+<div style="display:flex;justify-content:center">
+<svg viewBox="0 0 480 420" width="100%" style="max-width:460px;height:auto" role="img" aria-label="Clinic cover art: stethoscope, heart and family silhouettes">
+  <rect x="10" y="10" width="460" height="400" rx="34" fill="#ffffff"/>
+  <circle cx="240" cy="200" r="150" fill="#E8F3FA"/>
+  <path d="M240 300 C150 240 130 190 150 160 C170 130 215 140 240 175 C265 140 310 130 330 160 C350 190 330 240 240 300Z" fill="#1D6FA3"/>
+  <path d="M120 150 C120 110 170 100 190 130" fill="none" stroke="#144D72" stroke-width="10" stroke-linecap="round"/>
+  <path d="M190 130 C200 170 230 210 270 220" fill="none" stroke="#144D72" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="290" cy="225" r="18" fill="#144D72"/>
+  <g fill="#144D72" opacity=".9">
+    <circle cx="90" cy="330" r="16"/><rect x="74" y="350" width="32" height="40" rx="14"/>
+    <circle cx="140" cy="318" r="20"/><rect x="122" y="342" width="36" height="48" rx="16"/>
+    <circle cx="395" cy="330" r="16"/><rect x="379" y="350" width="32" height="40" rx="14"/>
+  </g>
+  <rect x="200" y="36" width="80" height="26" rx="13" fill="#1D6FA3"/>
+  <path d="M232 42h16M240 34v16" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+</svg></div>
+</div>
+</section>
+
+<section id="services">
+<div class="w">
+<h2>Our services</h2>
+<p class="lead">Examples of services a family clinic might offer.</p>
+<div class="grid g4">
+<div class="card"><h3>General consultation</h3><p>Check-ups, common illnesses and follow-up care.</p></div>
+<div class="card"><h3>Paediatric care</h3><p>Routine child health visits and vaccination schedules.</p></div>
+<div class="card"><h3>Dental check-up</h3><p>Routine dental examinations and cleaning advice.</p></div>
+<div class="card"><h3>Physiotherapy</h3><p>Assessment and guided exercise plans for everyday movement.</p></div>
+</div>
+</div>
+</section>
+
+<section id="doctors" style="background:#fff;border-block:1px solid #E2E8F0">
+<div class="w">
+<h2>Our doctors</h2>
+<p class="lead">Fictional profiles. Real profiles should list qualifications and registration numbers.</p>
+<div class="grid g3">
+<div class="card dr"><div class="av">AS</div><div><h3>Dr. A. Sharma (demo)</h3><p>General Physician</p></div></div>
+<div class="card dr"><div class="av">RK</div><div><h3>Dr. R. Kaur (demo)</h3><p>Paediatrician</p></div></div>
+<div class="card dr"><div class="av">MV</div><div><h3>Dr. M. Verma (demo)</h3><p>Dentist</p></div></div>
+</div>
+</div>
+</section>
+
+<section id="timings">
+<div class="w">
+<h2>Clinic timings</h2>
+<table class="hours" style="margin-top:20px">
+<tr><td>Monday to Saturday</td><td>9:00 AM to 1:00 PM, 5:00 PM to 8:30 PM</td></tr>
+<tr><td>Sunday</td><td>10:00 AM to 1:00 PM (emergency numbers only)</td></tr>
+</table>
+<p class="note">For emergencies, call your local emergency number.</p>
+</div>
+</section>
+
+<section id="book" style="background:#fff;border-top:1px solid #E2E8F0">
+<div class="w">
+<h2>Request an appointment</h2>
+<p class="lead">Demo form. Nothing is sent or stored.</p>
+<form onsubmit="event.preventDefault();this.querySelector('.msg').textContent='Demo only: no appointment was requested.'">
+<input placeholder="Patient name" required>
+<input type="tel" placeholder="Phone number" required>
+<select required><option value="">Choose a service</option><option>General consultation</option><option>Paediatric care</option><option>Dental check-up</option><option>Physiotherapy</option></select>
+<input type="date" required>
+<textarea rows="3" placeholder="Brief note (optional)"></textarea>
+<button class="btn btn-c" type="submit">Request appointment</button>
+<p class="msg note"></p>
+</form>
+</div>
+</section>
+<footer>&copy; Sunrise Family Clinic (demo). Fictional clinic for sample purposes. Not for medical use.</footer>
+
+</body>
+</html>
